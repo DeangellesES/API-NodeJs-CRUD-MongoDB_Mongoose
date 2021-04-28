@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const rotas = require('./routes/index')
+const rotas = require('./app/routes/')
+require('./app/database/')
 
 class Server {
     constructor(){
@@ -10,9 +11,11 @@ class Server {
     }
 
     start(){
-        app.listen(3000, ()=> console.log('servidor rodando na porta 3000'))
+        this.app.listen(3000, ()=> console.log('servidor rodando na porta 3000'))
     }
     
 }
+
+
 
 module.exports = new Server

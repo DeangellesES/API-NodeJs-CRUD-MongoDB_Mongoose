@@ -1,4 +1,4 @@
-const empresasSchema = require('../models/Empresas')
+const empresasSchema = require('../models/Empresa')
 const mongoose = require('mongoose')
 
 class ControllerEmpresa {
@@ -38,11 +38,12 @@ class ControllerEmpresa {
                 return res.status(400).json({error : 'cnpj já existe'})
             }
                             
-            const empresa = await empresasSchema.create(req.body)                              
+            const empresa = await empresasSchema.create(req.body) 
+            console.log(empresa)                             
             return res.send({empresa})
             
         }catch (err){
-            return res.status(400).send({err})
+            return res.status(400).send({message})
         }
     }
     
